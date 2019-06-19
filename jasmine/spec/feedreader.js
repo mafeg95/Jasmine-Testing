@@ -88,6 +88,18 @@ $(function() {
       * Remember, loadFeed() is asynchronous so this test will require
       * the use of Jasmine's beforeEach and asynchronous done() function.
       */
+      beforeEach(function(done){
+        loadFeed(0, function(){
+          done();
+        });
+      });
+
+      it('should have an initial entry', function(done){
+        var entry = $('.entry')[0];
+        var entryText = entry.children[0].innerText;
+        expect(entry).toBeDefined();
+        expect(entryText).not.toBe('');
+      });
     });
 
     describe('New Feed Selection', function(){
