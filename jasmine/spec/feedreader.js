@@ -95,18 +95,33 @@ $(function() {
       });
 
       it('should have an initial entry', function(done){
+        done();
         var entry = $('.entry')[0];
+        // debugger
         var entryText = entry.children[0].innerText;
         expect(entry).toBeDefined();
         expect(entryText).not.toBe('');
+        // expect(loadFeed).toBe(true);
       });
     });
 
     describe('New Feed Selection', function(){
+      var prevFeed;
 
       /* TODO: Write a test that ensures when a new feed is loaded
       * by the loadFeed function that the content actually changes.
       * Remember, loadFeed() is asynchronous.
       */
+
+      beforeEach(function(done) {
+       loadFeed(0, function() {
+         prevFeed = $('.feed')[0].innerHTML;
+         loadFeed(1, done);
+       });
+     });
+
+     it('should change the feeds when new feed is loaded', function() {
+       expect($('.feed')[0].innerHTML).not.toEqual(prevFeed);
+     });
     });
 }());
