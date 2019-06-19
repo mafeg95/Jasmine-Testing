@@ -70,7 +70,6 @@ $(function() {
           expect(body).not.toHaveClass("menu-hidden");
           button.click();
           expect(body).toHaveClass("menu-hidden");
-          // debugger
         });
 
       /* TODO: Write a test that ensures the menu changes
@@ -97,7 +96,6 @@ $(function() {
       it('should have an initial entry', function(done){
         done();
         var entry = $('.entry')[0];
-        // debugger
         var entryText = entry.children[0].innerText;
         expect(entry).toBeDefined();
         expect(entryText).not.toBe('');
