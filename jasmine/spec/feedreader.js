@@ -52,23 +52,32 @@ $(function() {
 
 
     describe('The menu', function(){
-        var body;
+        var body = $('body')[0];;
+        var button;
       /* TODO: Write a test that ensures the menu element is
       * hidden by default. You'll have to analyze the HTML and
       * the CSS to determine how we're performing the
       * hiding/showing of the menu element.
       */
+
         it('defaults to hidden', function(){
-          body = $('<div class="hidden-class"></div>')[0];
-          debugger
-          expect(body).toHaveClass("hidden-class")
+          expect(body).toHaveClass("menu-hidden");
         });
+
+        it('button switches menu visibility', function(){
+          button = $('a')[0];
+          button.click();
+          expect(body).not.toHaveClass("menu-hidden");
+          button.click();
+          expect(body).toHaveClass("menu-hidden");
+          // debugger
+        });
+
       /* TODO: Write a test that ensures the menu changes
       * visibility when the menu icon is clicked. This test
       * should have two expectations: does the menu display when
       * clicked and does it hide when clicked again.
       */
-
     });
 
     describe('Initial Entries', function(){
