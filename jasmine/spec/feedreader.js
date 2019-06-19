@@ -52,7 +52,7 @@ $(function() {
 
 
     describe('The menu', function(){
-        var body = $('body')[0];;
+        var body = $('body')[0];
         var button;
       /* TODO: Write a test that ensures the menu element is
       * hidden by default. You'll have to analyze the HTML and
