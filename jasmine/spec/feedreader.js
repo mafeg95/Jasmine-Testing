@@ -64,19 +64,21 @@ $(function() {
           expect(body).toHaveClass("menu-hidden");
         });
 
-        it('button switches menu visibility', function(){
-          button = $('a')[0];
-          button.click();
-          expect(body).not.toHaveClass("menu-hidden");
-          button.click();
-          expect(body).toHaveClass("menu-hidden");
-        });
 
       /* TODO: Write a test that ensures the menu changes
       * visibility when the menu icon is clicked. This test
       * should have two expectations: does the menu display when
       * clicked and does it hide when clicked again.
       */
+      it('button switches menu visibility', function(){
+        button = $('a')[0];
+        button.click();
+        expect(body).not.toHaveClass("menu-hidden");
+        button.click();
+        expect(body).toHaveClass("menu-hidden");
+      });
+      /* this test was above the todo, but I did write it*/
+
     });
 
     describe('Initial Entries', function(){
@@ -95,11 +97,7 @@ $(function() {
 
       it('should have an initial entry', function(done){
         done();
-        var entry = $('.entry')[0];
-        var entryText = entry.children[0].innerText;
-        expect(entry).toBeDefined();
-        expect(entryText).not.toBe('');
-        // expect(loadFeed).toBe(true);
+        expect($('.feed .entry')).not.toBe(0);
       });
     });
 
